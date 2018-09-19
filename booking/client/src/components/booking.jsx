@@ -188,6 +188,14 @@ class Booking extends React.Component {
   }
 
   componentDidMount() {
+  /*  ************************************************************************************ 
+
+      If you passed in the url in the form of window.location which is "http://localhost:XXXX/:id".
+      This looks for the pathname and uses regex to match the id in the url.
+
+      ************************************************************************************ 
+  */
+
     let url = this.props.url.pathname.match(/[0-9]+/g)[0];
 
     fetch('http://localhost:3004/house/' + url, {

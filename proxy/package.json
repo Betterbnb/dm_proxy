@@ -1,60 +1,16 @@
 {
-  "name": "fec",
+  "name": "proxy",
   "version": "1.0.0",
   "description": "",
-  "author": "David Mai",
-  "license": "",
-  "engines": {
-    "node": ">=6.13.0"
-  },
-  "scripts": {
-    "start": "nodemon server.js",
-    "live": "live-server --port=8080",
-    "react-dev": "webpack -D --watch",
-    "test": "jest"
-  },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.3.1",
-    "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "jest": "^23.6.0",
-    "moment": "^2.22.2",
-    "mysql": "^2.16.0",
-    "mysql2": "^1.6.1",
-    "nodemon": "^1.18.4",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
-    "react-router-dom": "^4.3.1",
-    "sequelize": "^4.38.0",
-    "styled-components": "^3.4.6"
+    "nodemon": "^1.18.4"
   },
-  "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.2",
-    "enzyme": "^3.6.0",
-    "enzyme-adapter-react-16": "^1.5.0",
-    "enzyme-to-json": "^3.3.4",
-    "eslint": "^5.5.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1",
-    "sequelize-cli": "^4.1.1",
-    "webpack": "^4.17.2",
-    "webpack-cli": "^3.1.0"
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "setupFiles": [
-      "./client/src/setupTests.js"
-    ],
-    "testURL": "https://www.somthing.com/test.html"
-  }
+  "author": "",
+  "license": "ISC"
 }

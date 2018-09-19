@@ -12,18 +12,18 @@
     <script src="./lib/react.development.js"></script>
     <script src="./lib/react-dom.development.js"></script>
     <!-- <script src="http://localhost:3001/app.js"></script>
-    <script src="http://localhost:3002/app.js"></script>
-    <script src="http://localhost:3003/app.js"></script> -->
-    <script src="http://localhost:3004/public/100/dist/bundle.js"></script>
+    <script src="http://localhost:3002/app.js"></script> -->
+    <script src="http://localhost:3003/bundle.js"></script>
+    <script src="http://localhost:3004/public/:id/dist/bundle.js"></script>
     <!-- see: https://reactjs.org/docs/react-without-jsx.html -->
     <script>
       ReactDOM.render(
         React.createElement(Booking, {url: window.location}, null),
          document.getElementById('booking'));
-      // ReactDOM.render(
-      //   React.createElement(Gallery),
-      //   document.getElementById('Gallery')
-      // );
+      ReactDOM.render(
+        React.createElement(Gallery, {homeId: window.location.pathname}, null),
+        document.getElementById('gallery')
+      );
       // ReactDOM.render(
       //   React.createElement(Description),
       //   document.getElementById('Description')
