@@ -47,6 +47,7 @@ const Booking_container = styled.div`
   border: 1px solid #e4e4e4;
   background-color: #ffffff;
   user-select: none;
+    position: fixed;
 `
 
 const DollarPerNight = styled.span`
@@ -188,15 +189,8 @@ class Booking extends React.Component {
   }
 
   componentDidMount() {
-  /*  ************************************************************************************ 
 
-      If you passed in the url in the form of window.location which is "http://localhost:XXXX/:id".
-      This looks for the pathname and uses regex to match the id in the url.
-
-      ************************************************************************************ 
-  */
-
-    let url = this.props.url.pathname.match(/[0-9]+/g)[0];
+    let url = this.props.homeId;
 
     fetch('http://localhost:3004/house/' + url, {
       headers : { 

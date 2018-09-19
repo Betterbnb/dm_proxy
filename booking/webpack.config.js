@@ -1,5 +1,8 @@
+
 module.exports = {
-  entry: __dirname + '/client/src/index.js',
+  entry: {
+    app: __dirname + '/client/src/index.js'
+  },
   output: {
     filename: 'bundle.js',
     path: __dirname + '/public/dist'
@@ -16,5 +19,17 @@ module.exports = {
       }
     ]
   },
-  mode: 'development'
+  mode: 'development',
+  // externals: {
+  //   "styled-components": {
+  //     commonjs: "styled-components",
+  //     commonjs2: "styled-components",
+  //     amd: "styled-components",
+  //   }
+  // },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: "all"
+  //   }
+  // }
 }
