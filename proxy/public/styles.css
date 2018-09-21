@@ -9,7 +9,7 @@
 }
 
 #bookingContainer {
-  grid-area: 2/3/3/4;
+  grid-area: 2/ 3 / 3 /4;
   margin-left: 25%;
   width: 41.6667%;
 }
@@ -19,8 +19,8 @@
 }
 
 #reviews {
-  grid-area: 4/1/4/4;
-  margin-left: 16%;
+  grid-area: 4/ 1 / 4 / 4;
+  margin-left: 15%;
 }
 
 #container {
