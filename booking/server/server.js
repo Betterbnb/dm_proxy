@@ -12,7 +12,6 @@ app.use(function(req, res, next) {
 });
 
 app.get('/house/:id', (req, res, next) => {
-  console.log('lol');
   db.House.sync()
   .then(()=> {
     return db.House.findAll()

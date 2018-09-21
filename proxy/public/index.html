@@ -3,35 +3,45 @@
   <head>
     <meta charset="UTF-8">
     <title>FEC Demo</title>
+    <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <div id="booking"></div>
-    <div id="gallery"></div>
-    <div id="description"></div>
-    <div id="reviews"></div>
+    <img src="https://s3-us-west-1.amazonaws.com/cloud1314/Screen+Shot+2018-09-20+at+5.29.14+PM.png"> 
+    <div id="container">
+      <div id="gallery"></div>
+      <div id="bookingContainer">
+          <div id="booking"></div>
+      </div>
+      <div id="description"></div>
+      <div id="reviews"></div>
+    </div>
+    <div id="footer">
+      <img src="https://s3-us-west-1.amazonaws.com/cloud1314/Screen+Shot+2018-09-20+at+5.36.16+PM.png">
+    </div>
     <script src="./lib/react.development.js"></script>
     <script src="./lib/react-dom.development.js"></script>
-    <!-- <script src="http://localhost:3001/app.js"></script>
-    <script src="http://localhost:3002/app.js"></script> -->
-    <script src="http://localhost:3003/bundle.js"></script>
-    <script src="http://localhost:3004/public/:id/dist/bundle.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/cloud1314/fec+bundles/app.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/cloud1314/fec+bundles/bookingbundle.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/cloud1314/fec+bundles/descriptionbundle.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/cloud1314/fec+bundles/gallerybundle.js"></script>
     <!-- see: https://reactjs.org/docs/react-without-jsx.html -->
     <script>
+      let homeId = location.pathname.match(/[0-9]+/g);
+
       ReactDOM.render(
-        React.createElement(Booking, {url: window.location}, null),
-         document.getElementById('booking'));
+        React.createElement(Gallery, {homeId}, null),
+          document.getElementById('gallery'));
+
       ReactDOM.render(
-        React.createElement(Gallery, {homeId: window.location.pathname}, null),
-        document.getElementById('gallery')
-      );
-      // ReactDOM.render(
-      //   React.createElement(Description),
-      //   document.getElementById('Description')
-      // );
-      // ReactDOM.render(
-      //   React.createElement(Reviews),
-      //   document.getElementById('Reviews')
-      // );
+        React.createElement(Booking, {homeId}, null),
+          document.getElementById('booking'));
+
+      ReactDOM.render(
+        React.createElement(Description, {homeId}, null),
+          document.getElementById('description'));
+      ReactDOM.render(
+        React.createElement(Reviews),
+          document.getElementById('reviews'));
     </script>
   </body>
 </html>

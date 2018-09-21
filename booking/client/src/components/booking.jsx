@@ -47,7 +47,7 @@ const Booking_container = styled.div`
   border: 1px solid #e4e4e4;
   background-color: #ffffff;
   user-select: none;
-    position: fixed;
+
 `
 
 const DollarPerNight = styled.span`
@@ -130,15 +130,15 @@ const FooterMessage = styled.div`
 `
 
 const FooterHeader = styled.div`
-font-weight: 600;
-   word-wrap: break-word;
-   font-size: 14px;
-   line-height: 18px;
-   letter-spacing: normal;
-   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-   color: rgb(72, 72, 72);
-   display: inline;
-   margin: 0px;
+  font-weight: 600;
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: normal;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  color: rgb(72, 72, 72);
+  display: inline;
+  margin: 0px;
 `
 
 const Image = styled.div`
@@ -189,10 +189,8 @@ class Booking extends React.Component {
   }
 
   componentDidMount() {
-
     let url = this.props.homeId;
-
-    fetch('http://localhost:3004/house/' + url, {
+    fetch('/house/' + url, {
       headers : { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -200,17 +198,57 @@ class Booking extends React.Component {
       }).then((res) => {
         return res.text()
       }).then((data)=> {this.setState({house_info: JSON.parse(data)})});
+
+    window.addEventListener('scroll', ()=>{
+      this.togglePosition();
+    });
   }
 
+  // componentWillMount() {
+  //   window.addEventListener('scroll', ()=>{
+  //     this.togglePosition();
+  //   });
+  // }
+
+  togglePosition() {
+    let containerHeight = document.getElementById('container').clientHeight;
+    let footerHeight = document.getElementById('footer').scrollHeight;
+    let galleryHeight = document.getElementById('gallery').scrollHeight;
+
+    if (window.pageYOffset >= galleryHeight + 80 && window.pageYOffset <= containerHeight - galleryHeight + 150) {
+      this.setState({style: {
+        "width": "376px", 
+        "zIndex": "3", 
+        "marginBottom":"8px",
+        "position":"fixed",
+        "top": 0
+      }})
+    } else if (window.pageYOffset < galleryHeight + 80) {
+      this.setState({style: {
+        "width": "376px", 
+        "zIndex": "3", 
+        "marginBottom":"8px",
+        "position":"absolute",
+      }})
+    } 
+    else {
+      this.setState({style: {
+        "width": "376px", 
+        "zIndex": "3", 
+        "marginBottom":"8px",
+        "position":"absolute",
+        "top": containerHeight - footerHeight - galleryHeight +100 + 'px'
+      }})
+    }
+  }
   render() {
     return (
-      <div style={{"marginLeft":"45px","width": "376px", "zIndex": "3", "position":"absolute","top":"32px", "marginBottom":"8px"}}>
+      <div style={this.state.style}>
         <Booking_container>
         <div style={{"marginTop":"16px", "marginBottom":"8px"}}>
           <DollarPerNight>${this.state.house_info.price_per_night}</DollarPerNight>
           <PerNight> per night</PerNight>
         </div>
-
         <Reviews>
           <Stars>
             <svg viewBox="0 0 1000 1000" role="presentation" focusable="false" style={{"height": "1em", "width": "1em", "display": "inline-block", "fill": "currentcolor"}}>
