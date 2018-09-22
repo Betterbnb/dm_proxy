@@ -2,7 +2,7 @@
   "routes": [
     {
       "route": "/house/:id",
-      "address": "http://localhost:3004"
+      "address": "http://booking-server.us-west-1.elasticbeanstalk.com"
     },
     {
       "route": "/descriptions/:id",
@@ -13,7 +13,15 @@
       "address": "http://localhost:3003"
     },
     {
-      "route": "/",
+      "route": "/homes/:homeId",
+      "address": "http://localhost:3001"
+    },
+    {
+      "route": "/reviews/queried/:query",
+      "address": "http://localhost:3001"
+    },
+    {
+      "route": "/reviews/queried/:query/:id",
       "address": "http://localhost:3001"
     }
   ]
